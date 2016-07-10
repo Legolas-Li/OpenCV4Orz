@@ -119,7 +119,7 @@ def process(request,name=None,process_todo=[]):
 				imageurlcontainerfinal = []
 			print 1111111111111,imageurlcontainer
 			for i in imageurlcontainer:
-				imageurlcontainerfinal.append(str(i).split("opencv4orz\\media\\")[1])
+				imageurlcontainerfinal.append(str(i).split("OpenCV4Orz\\media\\")[1])
 			return imageurlcontainerfinal
 		else:
 			return HttpResponse("Some Error Error Occured")
