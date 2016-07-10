@@ -29,6 +29,8 @@ def index(request):
 			gaussian_blur = form.cleaned_data['gaussian_blur']
 			median_blur = form.cleaned_data['median_blur']
 			dilate = form.cleaned_data['dilate']
+			# dilate_ksize = form.cleaned_data['dilate_ksize']
+			# print 333333333333,dilate_ksize
 			erode = form.cleaned_data['erode']
 			open = form.cleaned_data['open']
 			close = form.cleaned_data['close']
@@ -57,7 +59,7 @@ def index(request):
 				process_todo.append("open")
 			if(close==True):
 				process_todo.append("close")
-			image_url_container = process(request,image_file.image_file.name,process_todo)
+			image_url_container = process(request,form,image_file.image_file.name,process_todo)
 			return render(request,'polls/showimg.html',{"imageurlcontainer":image_url_container})
 		else:
 			return HttpResponse("Error")
@@ -69,9 +71,8 @@ def index(request):
 
 
 
-
-
-def process(request,name=None,process_todo=[]):
+def process(request, form, name=None, process_todo=[]):
+	# print 4444444444444,form.cleaned_data['dilate_ksize']
 	if name==None or len(process_todo)==0:
 		return redirect(index)
 	else:
@@ -105,7 +106,7 @@ def process(request,name=None,process_todo=[]):
 					newfilepath = median_blur(filepath)
 					imageurlcontainer.append(str(newfilepath))
 				if i=="dilate":
-					newfilepath = dilate(filepath)
+					newfilepath = dilate(filepath, form.cleaned_data['dilate_ksize'])
 					imageurlcontainer.append(str(newfilepath))
 				if i=="erode":
 					newfilepath = erode(filepath)

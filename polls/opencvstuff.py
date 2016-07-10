@@ -60,9 +60,10 @@ def median_blur(image):
 	cv2.imwrite(imagename, median_blur)
 	return imagename
 
-def dilate(image):
+def dilate(image,ksize):
+	print 555555555,(int(ksize.strip("(").strip(")").split(",")[0]),int(ksize.strip("(").strip(")").split(",")[1]))
 	img = cv2.imread(image, 0)
-	x = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5))
+	x = cv2.getStructuringElement(cv2.MORPH_RECT, (int(ksize.strip("(").strip(")").split(",")[0]),int(ksize.strip("(").strip(")").split(",")[1])))
 	dilate = cv2.dilate(img, x)
 	imagename = str(image).split(".")[0] + "_dilate_processed." + str(image).split(".")[-1]
 	cv2.imwrite(imagename, dilate)

@@ -18,6 +18,8 @@ class Document(models.Model):
     median_blur = models.BooleanField(default=False)
 
     dilate = models.BooleanField(default=False)
+    dilate_ksize = models.CharField(blank=True, null=True, default=(5,5), max_length=16)
+
     erode = models.BooleanField(default=False)
     open = models.BooleanField(default=False)
     close = models.BooleanField(default=False)

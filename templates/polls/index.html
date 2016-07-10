@@ -152,10 +152,21 @@ body {
     <div class="container">
 
     <form action="." method="post" enctype="multipart/form-data">
-       <div class="form-group">
+       <div class="form-inline">
       {% csrf_token %}
-    	{{ form.as_ul }}
+    	<!--{{ form.as_ul }}-->
        </div>
+        <li>
+        <div class="form-inline">
+            {{ form.image_file.label_tag }}{{ form.image_file }}
+        </div>
+        </li>
+        <li>
+        <div class="form-inline">
+            {{ form.dilate.label_tag }}{{ form.dilate }} <b>Ksize:</b> {{ form.dilate_ksize }}
+        </div>
+        </li>
+
     <input type="button" value="preview" onclick="upload_img()" />      
     <input type="submit" value="Submit" />    	
     </form>    
