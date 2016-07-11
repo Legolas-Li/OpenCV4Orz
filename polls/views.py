@@ -25,7 +25,9 @@ def index(request):
 			binarythreshold = form.cleaned_data['binarythreshold']
 			histogram = form.cleaned_data['histogram']
 			edgedetection = form.cleaned_data['edgedetection']			
-			sobelfilter = form.cleaned_data['sobelfilter']			
+			roberts = form.cleaned_data['roberts']
+			prewitt = form.cleaned_data['prewitt']
+			sobelfilter = form.cleaned_data['sobelfilter']
 			gaussian_blur = form.cleaned_data['gaussian_blur']
 			median_blur = form.cleaned_data['median_blur']
 			dilate = form.cleaned_data['dilate']
@@ -41,6 +43,10 @@ def index(request):
 				process_todo.append("binarythreshold")
 			if(histogram==True):
 				process_todo.append("histogram")
+			if(roberts==True):
+				process_todo.append("roberts")
+			if(prewitt==True):
+				process_todo.append("prewitt")
 			if(edgedetection==True):
 				process_todo.append("edgedetection")
 			if(sobelfilter==True):
@@ -94,6 +100,12 @@ def process(request,name=None,process_todo=[]):
 					imageurlcontainer.append(str(newfilepath))
 				if i=="edgedetection":
 					newfilepath = cannyedge(filepath)
+					imageurlcontainer.append(str(newfilepath))
+				if i=="roberts":
+					newfilepath = roberts(filepath)
+					imageurlcontainer.append(str(newfilepath))
+				if i=="prewitt":
+					newfilepath = prewitt(filepath)
 					imageurlcontainer.append(str(newfilepath))
 				if i=="sobelfilter":
 					newfilepath = sobelfilter(filepath)

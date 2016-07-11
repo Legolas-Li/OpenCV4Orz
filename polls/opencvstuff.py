@@ -57,6 +57,23 @@ def cannyedge(image):
 	cv2.imwrite(imagename,edges)
 	return imagename
 
+
+def roberts(image):
+	img = cv2.imread(image)
+	kernel = np.array([[1, 0], [0, -1]])
+	roberts = cv2.filter2D(img, -1, kernel)
+	imagename = str(image).split(".")[0] + "_roberts_processed." + str(image).split(".")[-1]
+	cv2.imwrite(imagename, roberts)
+	return imagename
+
+def prewitt(image):
+	img = cv2.imread(image)
+	kernel = np.array([[-1, 0, 1], [-1, 0, 1], [-1, 0, 1]])
+	prewitt = cv2.filter2D(img, -1, kernel)
+	imagename = str(image).split(".")[0] + "_prewitt_processed." + str(image).split(".")[-1]
+	cv2.imwrite(imagename, prewitt)
+	return imagename
+
 def sobelfilter(image):
 	img = cv2.imread(image,0)
 	sobel = cv2.Sobel(img,cv2.CV_64F,1,1,ksize=5)

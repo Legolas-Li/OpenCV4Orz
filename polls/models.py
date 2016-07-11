@@ -13,6 +13,8 @@ class Document(models.Model):
     smoothen = models.BooleanField(default=False)
 
     edgedetection = models.BooleanField(default=False)
+    roberts = models.BooleanField(default=False)
+    prewitt = models.BooleanField(default=False)
     sobelfilter = models.BooleanField(default=False)
     gaussian_blur = models.BooleanField(default=False)
     median_blur = models.BooleanField(default=False)
