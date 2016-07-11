@@ -24,13 +24,31 @@ def binarythreshold(image):
  	cv2.imwrite(imagename,thresh1)
  	return imagename
 
+# def histogram(image):
+# 	img = cv2.imread(image)
+# 	hsv = cv2.cvtColor(img,cv2.COLOR_BGR2HSV)
+# 	hist = cv2.calcHist([hsv], [0, 1], None, [180, 256], [0, 180, 0, 256])
+# 	imagename = str(image).split(".")[0]+"_histogram_processed."+str(image).split(".")[-1]
+# 	cv2.imwrite(imagename,hist)
+# 	return imagename
+
 def histogram(image):
 	img = cv2.imread(image)
-	hsv = cv2.cvtColor(img,cv2.COLOR_BGR2HSV)	
-	hist = cv2.calcHist([hsv], [0, 1], None, [180, 256], [0, 180, 0, 256])
+	h = np.zeros((256, 256, 3))
+	bins = np.arange(256).reshape(256, 1)
+	color = [(255, 0, 0), (0, 255, 0), (0, 0, 255)]
+	for ch, col in enumerate(color):
+		originHist = cv2.calcHist([img], [ch], None, [256], [0, 256])
+		cv2.normalize(originHist, originHist, 0, 255 * 0.9, cv2.NORM_MINMAX)
+		hist = np.int32(np.around(originHist))
+		pts = np.column_stack((bins, hist))
+		cv2.polylines(h, [pts], False, col)
+	h==np.flipud(h)
 	imagename = str(image).split(".")[0]+"_histogram_processed."+str(image).split(".")[-1]
-	cv2.imwrite(imagename,hist)
+	cv2.imwrite(imagename,h)
 	return imagename
+
+
 
 def cannyedge(image):
 	img = cv2.imread(image,0)

@@ -121,7 +121,7 @@ body {
 <link rel="stylesheet" href="/statics/css/bootstrap.min.css">
 <script src="/statics/js/jquery-2.1.1.min.js"></script>
 <script src="/statics/js/bootstrap.min.js"></script>
-
+<script src="http://rawgit.com/briangonzalez/rgbaster.js/master/rgbaster.js"></script>
 
 
   </head>
@@ -160,7 +160,7 @@ body {
     <input type="submit" value="Submit" />    	
     </form>    
       <br>
-     <img src="" id="img_id" style="display:none"> 
+     <img src="" id="img_id" style="display:none" width = "500" height = "309">
 
     </div> <!-- /container -->
 
@@ -180,6 +180,18 @@ $(document).ready(function() {
             $(this).attr("checked", returnVal);
         }
         $('#textbox1').val($(this).is(':checked'));        
+    });
+        var img = document.getElementById('img_id');
+    // 或者
+    RGBaster.colors(img, {
+      success: function(payload) {
+        // payload.dominant是主色，RGB形式表示
+        // payload.secondary是次色，RGB形式表示
+        // payload.palette是调色板，含多个主要颜色，数组
+        console.log(payload.dominant);
+        console.log(payload.secondary);
+        console.log(payload.palette);
+      }
     });
 });
 
@@ -201,6 +213,8 @@ $(document).ready(function() {
                 reader.readAsDataURL(input.files[0]);
             }
         }
+
+
 
     </script>
     
