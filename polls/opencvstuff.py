@@ -83,17 +83,28 @@ def sobelfilter(image, sobel_ksize):
 
 def gaussian_blur(image,gaussian_ksize,gaussian_sigmaX):
     img = cv2.imread(image)
+    print "gaussian_ksize,gaussian_sigmaX",gaussian_ksize,gaussian_sigmaX
     gaussian_blur = cv2.GaussianBlur(img, eval(gaussian_ksize),gaussian_sigmaX)
     imagename = str(image).split(".")[0] + "_gaussian_blur_processed." + str(image).split(".")[-1]
     cv2.imwrite(imagename, gaussian_blur)
     return imagename
 
-def median_blur(image):
-    img = cv2.imread(image, 0)
-    median_blur = cv2.medianBlur(img, 5)
+def median_blur(image,median_blur_ksize):
+    img = cv2.imread(image)
+    median_blur = cv2.medianBlur(img, median_blur_ksize)
     imagename = str(image).split(".")[0] + "_median_blur_processed." + str(image).split(".")[-1]
     cv2.imwrite(imagename, median_blur)
     return imagename
+
+
+def average_blur(image,average_blur_ksize):
+    img = cv2.imread(image)
+    average_blur = cv2.blur(img, eval(average_blur_ksize))
+    imagename = str(image).split(".")[0] + "_average_blur_processed." + str(image).split(".")[-1]
+    cv2.imwrite(imagename, average_blur)
+    return imagename
+
+
 
 def dilate(image,dilate_ksize):
     img = cv2.imread(image, 0)
@@ -105,25 +116,25 @@ def dilate(image,dilate_ksize):
     cv2.imwrite(imagename, dilate)
     return imagename
 
-def erode(image):
+def erode(image,erode_ksize):
     img = cv2.imread(image, 0)
-    x = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5))
+    x = cv2.getStructuringElement(cv2.MORPH_RECT, eval(erode_ksize))
     erode = cv2.erode(img, x)
     imagename = str(image).split(".")[0] + "_erode_processed." + str(image).split(".")[-1]
     cv2.imwrite(imagename, erode)
     return imagename
 
-def opend(image):
+def opend(image,opend_ksize):
     img = cv2.imread(image, 0)
-    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5))
+    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, eval(opend_ksize))
     opened = cv2.morphologyEx(img, cv2.MORPH_OPEN, kernel)
     imagename = str(image).split(".")[0] + "_opend_processed." + str(image).split(".")[-1]
     cv2.imwrite(imagename, opened)
     return imagename
 
-def closed(image):
+def closed(image,closed_ksize):
     img = cv2.imread(image, 0)
-    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5))
+    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, eval(closed_ksize))
     closed = cv2.morphologyEx(img, cv2.MORPH_CLOSE, kernel)
     imagename = str(image).split(".")[0] + "_closed_processed." + str(image).split(".")[-1]
     cv2.imwrite(imagename, closed)
@@ -131,7 +142,7 @@ def closed(image):
 
 
 def otsu(image):
-    img = cv2.imread(image, 0)
+    img = cv2.imread(image)
     imggray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     ret, imgBinary = cv2.threshold(imggray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
     imagename = str(image).split(".")[0] + "_otsu_processed." + str(image).split(".")[-1]

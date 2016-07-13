@@ -30,6 +30,7 @@ def index(request):
             sobelfilter = form.cleaned_data['sobelfilter']
             gaussian_blur = form.cleaned_data['gaussian_blur']
             median_blur = form.cleaned_data['median_blur']
+            average_blur = form.cleaned_data['average_blur']
             dilate = form.cleaned_data['dilate']
             erode = form.cleaned_data['erode']
             open = form.cleaned_data['open']
@@ -56,6 +57,8 @@ def index(request):
                 process_todo.append("gaussian_blur")
             if(median_blur==True):
                 process_todo.append("median_blur")
+            if(average_blur==True):
+                process_todo.append("average_blur")
             if(dilate==True):
                 process_todo.append("dilate")
             if(erode==True):
@@ -86,6 +89,11 @@ def process(request, form, name=None, process_todo=[]):
     sobel_ksize = form.cleaned_data['sobel_ksize']
     gaussian_ksize = form.cleaned_data['gaussian_ksize']
     gaussian_sigmaX = form.cleaned_data['gaussian_sigmaX']
+    median_blur_ksize = form.cleaned_data['median_blur_ksize']
+    average_blur_ksize = form.cleaned_data['average_blur_ksize']
+    erode_ksize = form.cleaned_data['erode_ksize']
+    opend_ksize = form.cleaned_data['opend_ksize']
+    closed_ksize = form.cleaned_data['closed_ksize']
     if name==None or len(process_todo)==0:
         return redirect(index)
     else:
@@ -122,19 +130,22 @@ def process(request, form, name=None, process_todo=[]):
                     newfilepath = gaussian_blur(filepath,gaussian_ksize,gaussian_sigmaX)
                     imageurlcontainer.append(str(newfilepath))
                 if i=="median_blur":
-                    newfilepath = median_blur(filepath)
+                    newfilepath = median_blur(filepath,median_blur_ksize)
+                    imageurlcontainer.append(str(newfilepath))
+                if i=="average_blur":
+                    newfilepath = average_blur(filepath,average_blur_ksize)
                     imageurlcontainer.append(str(newfilepath))
                 if i=="dilate":
                     newfilepath = dilate(filepath,dilate_ksize)
                     imageurlcontainer.append(str(newfilepath))
                 if i=="erode":
-                    newfilepath = erode(filepath)
+                    newfilepath = erode(filepath,erode_ksize)
                     imageurlcontainer.append(str(newfilepath))
                 if i=="open":
-                    newfilepath = opend(filepath)
+                    newfilepath = opend(filepath,opend_ksize)
                     imageurlcontainer.append(str(newfilepath))
                 if i=="close":
-                    newfilepath = closed(filepath)
+                    newfilepath = closed(filepath,closed_ksize)
                     imageurlcontainer.append(str(newfilepath))
                 if i=="otsu":
                     newfilepath = otsu(filepath)

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,7 +9,7 @@
     <meta name="author" content="legolas">
 
     <title>OpenCV4Orz</title>
-   <style type="text/css">
+    <style type="text/css">
    /*
  * Base structure
  */
@@ -116,56 +116,109 @@ body {
   border-radius: 50%;
 }
 
-   </style>
 
-<link rel="stylesheet" href="/statics/css/bootstrap.min.css">
-<script src="/statics/js/jquery-2.1.1.min.js"></script>
-<script src="/statics/js/bootstrap.min.js"></script>
-<script src="http://rawgit.com/briangonzalez/rgbaster.js/master/rgbaster.js"></script>
+    </style>
+
+    <link rel="stylesheet" href="/statics/css/bootstrap.min.css">
+    <script src="/statics/js/jquery-2.1.1.min.js"></script>
+    <script src="/statics/js/bootstrap.min.js"></script>
+    <script src="http://rawgit.com/briangonzalez/rgbaster.js/master/rgbaster.js"></script>
 
 
-  </head>
+</head>
 
-  <body>
+<body>
 
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">OpenCV4Orz</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">          
-          <ul class="nav navbar-nav navbar-right">
-            <li><a>legolas</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-    <br>    <br>
-    
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">OpenCV4Orz</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a>legolas</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+<br> <br>
+
+<div class="container">
 
     <form action="." method="post" enctype="multipart/form-data">
-       <div class="form-group">
-      {% csrf_token %}
-    	{{ form.as_ul }}
-       </div>
-    <input type="button" value="preview" onclick="upload_img()" />      
-    <input type="submit" value="Submit" />    	
-    </form>    
-      <br>
-     <img src="" id="img_id" style="display:none" width = "500" height = "309">
+        {% csrf_token %}
+        <!--{{ form.as_ul }}-->
 
-    </div> <!-- /container -->
+        <li class="form-inline">
+            {{ form.image_file.label_tag }}{{ form.image_file }}
+        </li>
+        <li class="form-inline">
+            {{ form.histogram.label_tag }} {{ form.histogram }}
+        </li>
+        <li class="form-inline">
+            {{ form.greyscale.label_tag }} {{ form.greyscale }}
+        </li>
+        <li class="form-inline">
+            {{ form.binary_threshold.label_tag }} {{ form.binary_threshold }} {{ form.binary_threshold_threshold.label_tag }} {{ form.binary_threshold_threshold }}
+        </li>
+        <li class="form-inline">
+            {{ form.smoothen.label_tag }} {{ form.smoothen }} {{ form.smoothen_kernel_array.label_tag }}{{ form.smoothen_kernel_array }}
+        </li>
+        <li class="form-inline">
+            {{ form.canny.label_tag }} {{ form.canny }} {{ form.canny_threshold.label_tag }} {{ form.canny_threshold }}
+        </li>
+        <li class="form-inline">
+            {{ form.roberts.label_tag }} {{ form.roberts }}
+        </li>
+        <li class="form-inline">
+            {{ form.prewitt.label_tag }} {{ form.prewitt }}
+        </li>
+        <li class="form-inline">
+            {{ form.sobelfilter.label_tag }} {{ form.sobelfilter }} {{ form.sobel_ksize.label_tag }}{{ form.sobel_ksize }}
+        </li>
+        <li class="form-inline">
+            {{ form.gaussian_blur.label_tag }} {{ form.gaussian_blur }} {{ form.gaussian_ksize.label_tag }}{{ form.gaussian_ksize }} {{ form.gaussian_sigmaX.label_tag }}{{ form.gaussian_sigmaX }}
+        </li>
+        <li class="form-inline">
+            {{ form.median_blur.label_tag  }} {{ form.median_blur }} {{ form.median_blur_ksize.label_tag }}{{ form.median_blur_ksize }}
+        </li>
+        <li class="form-inline">
+            {{ form.average_blur.label_tag  }} {{ form.average_blur }} {{ form.average_blur_ksize.label_tag }}{{ form.average_blur_ksize }}
+        </li>
+        <li class="form-inline">
+            {{ form.dilate.label_tag }} {{ form.dilate }} {{ form.dilate_ksize.label_tag }}{{ form.dilate_ksize }}
+        </li>
+        <li class="form-inline">
+            {{ form.erode.label_tag }} {{ form.erode }} {{ form.erode_ksize.label_tag }}{{ form.erode_ksize }}
+        </li>
+        <li class="form-inline">
+            {{ form.open.label_tag }} {{ form.open }} {{ form.opend_ksize.label_tag }} {{ form.opend_ksize }}
+        </li>
+        <li class="form-inline">
+            {{ form.close.label_tag }} {{ form.close }} {{ form.closed_ksize.label_tag }} {{ form.closed_ksize }}
+        </li>
+        <li class="form-inline">
+            {{ form.otsu.label_tag }} {{ form.otsu }}
+        </li>
 
-    <br>    <br>
 
+        <input type="button" value="preview" onclick="upload_img()"/>
+        <input type="submit" value="Submit"/>
+    </form>
+    <br>
+    <img src="" id="img_id" style="display:none" width="500" height="309">
+
+</div> <!-- /container -->
+
+<br> <br>
 
 
 <script type="text/javascript">
@@ -216,7 +269,8 @@ $(document).ready(function() {
 
 
 
-    </script>
-    
-  </body>
+
+</script>
+
+</body>
 </html>
