@@ -10,111 +10,111 @@
 
     <title>OpenCV4Orz</title>
     <style type="text/css">
-   /*
- * Base structure
- */
+        /*
+        * Base structure
+        */
 
-/* Move down content because we have a fixed navbar that is 50px tall */
-body {
-  padding-top: 50px;
-}
-
-
-/*
- * Global add-ons
- */
-
-.sub-header {
-  padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
-}
-
-/*
- * Top navigation
- * Hide default border to remove 1px line.
- */
-.navbar-fixed-top {
-  border: 0;
-}
-
-/*
- * Sidebar
- */
-
-/* Hide for mobile, show later */
-.sidebar {
-  display: none;
-}
-@media (min-width: 768px) {
-  .sidebar {
-    position: fixed;
-    top: 51px;
-    bottom: 0;
-    left: 0;
-    z-index: 1000;
-    display: block;
-    padding: 20px;
-    overflow-x: hidden;
-    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-    background-color: #f5f5f5;
-    border-right: 1px solid #eee;
-  }
-}
-
-/* Sidebar navigation */
-.nav-sidebar {
-  margin-right: -21px; /* 20px padding + 1px border */
-  margin-bottom: 20px;
-  margin-left: -20px;
-}
-.nav-sidebar > li > a {
-  padding-right: 20px;
-  padding-left: 20px;
-}
-.nav-sidebar > .active > a,
-.nav-sidebar > .active > a:hover,
-.nav-sidebar > .active > a:focus {
-  color: #fff;
-  background-color: #428bca;
-}
+        /* Move down content because we have a fixed navbar that is 50px tall */
+        body {
+        padding-top: 50px;
+        }
 
 
-/*
- * Main content
- */
+        /*
+        * Global add-ons
+        */
 
-.main {
-  padding: 20px;
-}
-@media (min-width: 768px) {
-  .main {
-    padding-right: 40px;
-    padding-left: 40px;
-  }
-}
-.main .page-header {
-  margin-top: 0;
-}
+        .sub-header {
+        padding-bottom: 10px;
+        border-bottom: 1px solid #eee;
+        }
+
+        /*
+        * Top navigation
+        * Hide default border to remove 1px line.
+        */
+        .navbar-fixed-top {
+        border: 0;
+        }
+
+        /*
+        * Sidebar
+        */
+
+        /* Hide for mobile, show later */
+        .sidebar {
+        display: none;
+        }
+        @media (min-width: 768px) {
+        .sidebar {
+        position: fixed;
+        top: 51px;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        display: block;
+        padding: 20px;
+        overflow-x: hidden;
+        overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+        background-color: #f5f5f5;
+        border-right: 1px solid #eee;
+        }
+        }
+
+        /* Sidebar navigation */
+        .nav-sidebar {
+        margin-right: -21px; /* 20px padding + 1px border */
+        margin-bottom: 20px;
+        margin-left: -20px;
+        }
+        .nav-sidebar > li > a {
+        padding-right: 20px;
+        padding-left: 20px;
+        }
+        .nav-sidebar > .active > a,
+        .nav-sidebar > .active > a:hover,
+        .nav-sidebar > .active > a:focus {
+        color: #fff;
+        background-color: #428bca;
+        }
 
 
-/*
- * Placeholder dashboard ideas
- */
+        /*
+        * Main content
+        */
 
-.placeholders {
-  margin-bottom: 30px;
-  text-align: center;
-}
-.placeholders h4 {
-  margin-bottom: 0;
-}
-.placeholder {
-  margin-bottom: 20px;
-}
-.placeholder img {
-  display: inline-block;
-  border-radius: 50%;
-}
+        .main {
+        padding: 20px;
+        }
+        @media (min-width: 768px) {
+        .main {
+        padding-right: 40px;
+        padding-left: 40px;
+        }
+        }
+        .main .page-header {
+        margin-top: 0;
+        }
+
+
+        /*
+        * Placeholder dashboard ideas
+        */
+
+        .placeholders {
+        margin-bottom: 30px;
+        text-align: center;
+        }
+        .placeholders h4 {
+        margin-bottom: 0;
+        }
+        .placeholder {
+        margin-bottom: 20px;
+        }
+        .placeholder img {
+        display: inline-block;
+        border-radius: 50%;
+        }
 
 
     </style>
@@ -128,98 +128,344 @@ body {
 </head>
 
 <body>
-
-<!-- Fixed navbar -->
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">OpenCV4Orz</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a>legolas</a></li>
-            </ul>
-        </div><!--/.nav-collapse -->
-    </div>
-</nav>
-<br> <br>
-
 <div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1"><span
+                            class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
+                            class="icon-bar"></span><span class="icon-bar"></span></button>
+                    <a class="navbar-brand" href="/">OpenCV4Orz</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="/">Home</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong
+                                    class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">Action</a>
+                                </li>
+                                <li>
+                                    <a href="#">Another action</a>
+                                </li>
+                                <li>
+                                    <a href="#">Something else here</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a href="#">Separated link</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a href="#">One more separated link</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control"/>
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#">Link</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong
+                                    class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">Action</a>
+                                </li>
+                                <li>
+                                    <a href="#">Another action</a>
+                                </li>
+                                <li>
+                                    <a href="#">Something else here</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li>
+                                    <a href="#">Separated link</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="jumbotron clearfix">
+                <h1>
+                    欢迎使用！
+                </h1>
+				<div class="container-fluid">
+						<div class="col-md-4 column">
+						<p>
+							This is a template for a simple marketing or informational website. It includes a large callout
+							called the hero unit and three supporting pieces of content. Use it as a starting point to create
+							something more unique.
+						</p>
 
-    <form action="." method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <!--{{ form.as_ul }}-->
+						<p><button type="button" class="btn btn-primary" value="preview" onclick="upload_img()"/>预览</button></p>
+						</div>
+						
+						<img src="" id="img_id" style="display:none" width="600" height="370">
+				</div>
+            </div>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <form action="." method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+			<p><input id="id_image_file" name="image_file" type="file"
+                       class="btn btn-primary btn-large">
+            </p>            
+            <h4>请选择图片格式:jpg、bmp</h4>
+            <div class="row">
+                <div class="col-md-3 column">
+                    <h2>
+                        基本操作
+                    </h2>
+                    <p>
+                        <div class="row">
+                    <p>
+                        {{ form.histogram }} &nbsp直方图分析
+                    </p>
+                </div>
+                <div class="row">
+                    <p>
+                        {{ form.hist_equalize }} &nbsp直方图均衡
+                    </p>
+                </div>
+                <div class="row">
+                    <p>
+                        {{ form.greyscale }} &nbsp转换为灰度图像
+                    </p>
+                </div>
+                <div class="row">
+                    <p>
+                        {{ form.binary_threshold }} &nbsp转换为二值图像
+                    </p>
+                </div>
+                <div class="input-group input-group-sm">
+                  <span class="input-group-addon" id="sizing-addon3">Threshold</span>
+                  <input  class="form-control" placeholder="Threshold" aria-describedby="sizing-addon3" id="id_binary_threshold_threshold" name="binary_threshold_threshold" type="number" value="128">
+                </div>
+                <div class="row">
+                    <p>
+                        {{ form.shift }} &nbsp平移图像
+                    </p>
+                </div>
+                <div class="input-group input-group-sm">
+                  <span class="input-group-addon" id="sizing-addon3">坐标值（x, y）</span>
+                  <input  class="form-control" placeholder="坐标值（x, y）" aria-describedby="sizing-addon3" id="id_shift_coords" name="shift_coords" type="text" value="(0, 0)">
+                </div>
+                <div class="row">
+                    <p>
+                        {{ form.rotation }} &nbsp旋转图像
+                    </p>
+                </div>
+                <div class="input-group input-group-sm">
+                  <span class="input-group-addon" id="sizing-addon3">角度（degree）</span>
+                  <input  class="form-control" placeholder="旋转角度（degree）" aria-describedby="sizing-addon3" id="id_rotation_degree" name="rotation_degree" type="number" value="45">
+                </div>
+                <div class="row">
+                    <p>
+                        {{ form.scale_area }} &nbsp缩放图像（最近邻插值）
+                    </p>
+                </div>
+                <div class="input-group input-group-sm">
+                  <span class="input-group-addon" id="sizing-addon3">比例（ratio）</span>
+                  <input  class="form-control" placeholder="缩放比例（ratio）" aria-describedby="sizing-addon3" id="id_scale_area_ratio" name="scale_area_ratio" type="number" value="45">
+                </div>
+                <div class="row">
+                    <p>
+                        {{ form.scale_linear }} &nbsp缩放图像（双线性插值）
+                    </p>
+                </div>
+                <div class="input-group input-group-sm">
+                  <span class="input-group-addon" id="sizing-addon3">比例（ratio）</span>
+                  <input  class="form-control" placeholder="缩放比例（ratio）" aria-describedby="sizing-addon3" id="id_scale_linear_ratio" name="scale_linear_ratio" type="number" value="45">
+                </div>
+                </p>
+            </div>
+            <div class="col-md-3 column">
+                <h2>
+                    形态学处理
+                </h2>
+                <p>
+                    <div class="row">
+                <p>
+                    {{ form.dilate_binary }} &nbsp二值膨胀
+                </p>
+            </div>
+                <div class="input-group input-group-sm">
+                  <span class="input-group-addon" id="sizing-addon3">Kernel</span>
+                  <input  class="form-control" placeholder="Kernel（x, y）" aria-describedby="sizing-addon3" id="id_dilate_binary_ksize" name="dilate_binary_ksize" type="text" value="(9, 9)">
+                </div>
+            <div class="row">
+                <p>
+                    {{ form.erode_binary }} &nbsp二值腐蚀
+                </p>
+            </div>
 
-        <li class="form-inline">
-            {{ form.image_file.label_tag }}{{ form.image_file }}
-        </li>
-        <li class="form-inline">
-            {{ form.histogram.label_tag }} {{ form.histogram }}
-        </li>
-        <li class="form-inline">
-            {{ form.greyscale.label_tag }} {{ form.greyscale }}
-        </li>
-        <li class="form-inline">
-            {{ form.binary_threshold.label_tag }} {{ form.binary_threshold }} {{ form.binary_threshold_threshold.label_tag }} {{ form.binary_threshold_threshold }}
-        </li>
-        <li class="form-inline">
-            {{ form.smoothen.label_tag }} {{ form.smoothen }} {{ form.smoothen_kernel_array.label_tag }}{{ form.smoothen_kernel_array }}
-        </li>
-        <li class="form-inline">
-            {{ form.canny.label_tag }} {{ form.canny }} {{ form.canny_threshold.label_tag }} {{ form.canny_threshold }}
-        </li>
-        <li class="form-inline">
-            {{ form.roberts.label_tag }} {{ form.roberts }}
-        </li>
-        <li class="form-inline">
-            {{ form.prewitt.label_tag }} {{ form.prewitt }}
-        </li>
-        <li class="form-inline">
-            {{ form.sobelfilter.label_tag }} {{ form.sobelfilter }} {{ form.sobel_ksize.label_tag }}{{ form.sobel_ksize }}
-        </li>
-        <li class="form-inline">
-            {{ form.gaussian_blur.label_tag }} {{ form.gaussian_blur }} {{ form.gaussian_ksize.label_tag }}{{ form.gaussian_ksize }} {{ form.gaussian_sigmaX.label_tag }}{{ form.gaussian_sigmaX }}
-        </li>
-        <li class="form-inline">
-            {{ form.median_blur.label_tag  }} {{ form.median_blur }} {{ form.median_blur_ksize.label_tag }}{{ form.median_blur_ksize }}
-        </li>
-        <li class="form-inline">
-            {{ form.average_blur.label_tag  }} {{ form.average_blur }} {{ form.average_blur_ksize.label_tag }}{{ form.average_blur_ksize }}
-        </li>
-        <li class="form-inline">
-            {{ form.dilate.label_tag }} {{ form.dilate }} {{ form.dilate_ksize.label_tag }}{{ form.dilate_ksize }}
-        </li>
-        <li class="form-inline">
-            {{ form.erode.label_tag }} {{ form.erode }} {{ form.erode_ksize.label_tag }}{{ form.erode_ksize }}
-        </li>
-        <li class="form-inline">
-            {{ form.open.label_tag }} {{ form.open }} {{ form.opend_ksize.label_tag }} {{ form.opend_ksize }}
-        </li>
-        <li class="form-inline">
-            {{ form.close.label_tag }} {{ form.close }} {{ form.closed_ksize.label_tag }} {{ form.closed_ksize }}
-        </li>
-        <li class="form-inline">
-            {{ form.otsu.label_tag }} {{ form.otsu }}
-        </li>
+                <div class="input-group input-group-sm">
+                  <span class="input-group-addon" id="sizing-addon3">Kernel</span>
+                  <input  class="form-control" placeholder="Kernel（x, y）" aria-describedby="sizing-addon3" id="id_erode_binary_ksize" name="erode_binary_ksize" type="text" value="(9, 9)">
+                </div>
+            <div class="row">
+                <p>
+                    {{ form.open_binary }} &nbsp二值开运算
+                </p>
+            </div>
+                <div class="input-group input-group-sm">
+                  <span class="input-group-addon" id="sizing-addon3">Kernel</span>
+                  <input  class="form-control" placeholder="Kernel（x, y）" aria-describedby="sizing-addon3" id="id_opend_binary_ksize" name="opend_binary_ksize" type="text" value="(9, 9)">
+                </div>
+            <div class="row">
+                <p>
+                    {{ form.close_binary }} &nbsp二值闭运算
+                </p>
+            </div>
+                <div class="input-group input-group-sm">
+                  <span class="input-group-addon" id="sizing-addon3">Kernel</span>
+                  <input  class="form-control" placeholder="Kernel（x, y）" aria-describedby="sizing-addon3" id="id_closed_binary_ksize" name="closed_binary_ksize" type="text" value="(9, 9)">
+                </div>
+            <div class="row">
+                <p>
+                    {{ form.dilate }} &nbsp灰度膨胀
+                </p>
+            </div>
+                <div class="input-group input-group-sm">
+                  <span class="input-group-addon" id="sizing-addon3">Kernel</span>
+                  <input  class="form-control" placeholder="Kernel（x, y）" aria-describedby="sizing-addon3" id="id_dilate_ksize" name="dilate_ksize" type="text" value="(9, 9)">
+                </div>
 
+            <div class="row">
+                <p>
+                    {{ form.erode }} &nbsp灰度腐蚀
+                </p>
+            </div>
+                <div class="input-group input-group-sm">
+                  <span class="input-group-addon" id="sizing-addon3">Kernel</span>
+                  <input  class="form-control" placeholder="Kernel（x, y）" aria-describedby="sizing-addon3" id="id_erode_ksize" name="erode_ksize" type="text" value="(9, 9)">
+                </div>
+            <div class="row">
+                <p>
+                    {{ form.open }} &nbsp灰度开运算
+                </p>
+            </div>
+                <div class="input-group input-group-sm">
+                  <span class="input-group-addon" id="sizing-addon3">Kernel</span>
+                  <input  class="form-control" placeholder="Kernel（x, y）" aria-describedby="sizing-addon3" id="id_opend_ksize" name="opend_ksize" type="text" value="(9, 9)">
+                </div>
+            <div class="row">
+                <p>
+                    {{ form.close }} &nbsp灰度闭运算
+                </p>
+            </div>
+                <div class="input-group input-group-sm">
+                  <span class="input-group-addon" id="sizing-addon3">Kernel</span>
+                  <input  class="form-control" placeholder="Kernel（x, y）" aria-describedby="sizing-addon3" id="id_closed_ksize" name="closed_ksize" type="text" value="(9, 9)">
+                </div>
+        </p>
+    </div>
+    <div class="col-md-3 column">
+        <h2>
+            卷积操作
+        </h2>
+        <p>
+            <div class="row">
+        <p>
+            {{ form.roberts }} &nbspRoberts 算子
+        </p>
+    </div>
+    <div class="row">
+        <p>
+            {{ form.prewitt }} &nbspPrewitt 算子
+        </p>
+    </div>
+    <div class="row">
+        <p>
+            {{ form.sobel }} &nbspSobel 算子
+        </p>
+    </div>
+                <div class="input-group input-group-sm">
+                  <span class="input-group-addon" id="sizing-addon3">Kernel</span>
+                  <input  class="form-control" placeholder="Kernel" aria-describedby="sizing-addon3" id="id_sobel_ksize" name="sobel_ksize" type="number" value="5">
+                </div>
+    <div class="row">
+        <p>
+            {{ form.canny }} &nbspCanny 算子
+        </p>
+    </div>
+                <div class="input-group input-group-sm">
+                  <span class="input-group-addon" id="sizing-addon3">Threshold</span>
+                  <input  class="form-control" placeholder="Threshold" aria-describedby="sizing-addon3" id="id_canny_threshold" name="canny_threshold" type="text" value="(100, 200)">
+                </div>
+    <div class="row">
+        <p>
+            {{ form.gaussian_blur }} &nbsp高斯滤波
+        </p>
+    </div>
 
-        <input type="button" value="preview" onclick="upload_img()"/>
-        <input type="submit" value="Submit"/>
-    </form>
-    <br>
-    <img src="" id="img_id" style="display:none" width="500" height="309">
+                <div class="input-group input-group-sm">
+                  <span class="input-group-addon" id="sizing-addon3">Kernel</span>
+                  <input  class="form-control" placeholder="Kernel" aria-describedby="sizing-addon3" id="id_gaussian_ksize" name="gaussian_ksize" type="text" value="(31, 31)">
+                    <span class="input-group-addon" id="sizing-addon3">Sigma</span>
+                  <input  class="form-control" placeholder="方差（Sigma）" aria-describedby="sizing-addon3" id="id_gaussian_sigmaX" name="gaussian_sigmaX" type="number" value="2.5">
+ 
+                </div>
+    <div class="row">
+        <p>
+            {{ form.average_blur }} &nbsp均值滤波
+        </p>
+    </div>
+                <div class="input-group input-group-sm">
+                  <span class="input-group-addon" id="sizing-addon3">Kernel</span>
+                  <input  class="form-control" placeholder="Kernel" aria-describedby="sizing-addon3" id="id_average_blur_ksize" name="average_blur_ksize" type="text" value="(9, 9)">
+                </div>
+    <div class="row">
+        <p>
+            {{ form.median_blur }} &nbsp中值滤波
+        </p>
+    </div>
+                <div class="input-group input-group-sm">
+                  <span class="input-group-addon" id="sizing-addon3">Kernel</span>
+                  <input  class="form-control" placeholder="Kernel" aria-describedby="sizing-addon3" id="id_median_blur_ksize" name="median_blur_ksize" type="number" value="5">
+                </div>
+    </p>
+</div>
+<div class="col-md-3 column">
+    <h2>
+        阈值处理
+    </h2>
+    <p>
+        <div class="row">
+    <p>
+        {{ form.otsu }} &nbspOtsu阈值
+    </p>
+</div>
+</p>
 
-</div> <!-- /container -->
+</div>
+</div>
+<!--<input type="submit" value="Process"/>-->
+<button type="submit" class="btn btn-primary" value="Process">上传处理</button>
 
-<br> <br>
+</form>
 
+</div>
+</div>
 
 <script type="text/javascript">
 
@@ -232,7 +478,7 @@ $(document).ready(function() {
             var returnVal = confirm("Are you sure?");
             $(this).attr("checked", returnVal);
         }
-        $('#textbox1').val($(this).is(':checked'));        
+        $('#textbox1').val($(this).is(':checked'));
     });
         var img = document.getElementById('img_id');
     // 或者
@@ -251,7 +497,7 @@ $(document).ready(function() {
 
         function upload_img() {
           document.getElementById("img_id").style.display = "block"
-          
+
           input = document.getElementById("id_image_file")
 
 
@@ -266,6 +512,13 @@ $(document).ready(function() {
                 reader.readAsDataURL(input.files[0]);
             }
         }
+
+
+
+
+
+
+
 
 
 
