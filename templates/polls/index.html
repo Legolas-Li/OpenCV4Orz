@@ -117,9 +117,11 @@
         }
 
 
+
     </style>
 
     <link rel="stylesheet" href="/statics/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/statics/css/font-awesome.min.css">
     <script src="/statics/js/jquery-2.1.1.min.js"></script>
     <script src="/statics/js/bootstrap.min.js"></script>
     <script src="http://rawgit.com/briangonzalez/rgbaster.js/master/rgbaster.js"></script>
@@ -137,7 +139,7 @@
                             data-target="#bs-example-navbar-collapse-1"><span
                             class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
                             class="icon-bar"></span><span class="icon-bar"></span></button>
-                    <a class="navbar-brand" href="/">OpenCV4Orz</a>
+                    <a class="navbar-brand" href="/" style="position:relative;top:-15px;">OpenCV4Orz<img alt="Brand" src="/statics/img/orz.gif" width = "100" height = "30" style="position:relative;top:0px;"></a>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
@@ -145,42 +147,50 @@
                             <a href="/">Home</a>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenCV<strong
                                     class="caret"></strong></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="#">Action</a>
+                                    <a href="http://opencv.org/" target="__blank">Index</a>
                                 </li>
                                 <li>
-                                    <a href="#">Another action</a>
+                                    <a href="http://opencv.org/about.html" target="__blank">About</a>
                                 </li>
                                 <li>
-                                    <a href="#">Something else here</a>
+                                    <a href="http://opencv.org/downloads.html" target="__blank">Download</a>
                                 </li>
                                 <li class="divider">
                                 </li>
                                 <li>
-                                    <a href="#">Separated link</a>
+                                    <a href="http://opencv.org/documentation.html" target="__blank">Documentation</a>
+                                </li>
+                                <li>
+                                    <a href="http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_tutorials.html" target="__blank">OpenCV-Python</a>
+                                </li>
+                                <li>
+                                    <a href="http://opencv.org/platforms.html" target="__blank">Platforms</a>
                                 </li>
                                 <li class="divider">
                                 </li>
                                 <li>
-                                    <a href="#">One more separated link</a>
+                                    <a href="http://opencv.org/support.html" target="__blank">Support</a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
-                    <form class="navbar-form navbar-left" role="search">
+                    <form class="navbar-form navbar-left"  action="http://docs.opencv.org/2.4.13/search.html" method="get">
                         <div class="form-group">
-                            <input type="text" class="form-control"/>
+                            <input type="text" name="q" class="form-control"/>
+							<input type="hidden" name="check_keywords" value="yes">
+							<input type="hidden" name="area" value="default">
                         </div>
-                        <button type="submit" class="btn btn-default">Submit</button>
+                        <button type="submit" class="btn btn-default">Search</button>
                     </form>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="#">Link</a>
+                            <a href="https://github.com/Legolas-Li/OpenCV4Orz/blob/master/README.md" class="fa fa-github" target="_blank"> View on GitHub</a>
                         </li>
-                        <li class="dropdown">
+                        <!-- <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong
                                     class="caret"></strong></a>
                             <ul class="dropdown-menu">
@@ -199,7 +209,7 @@
                                     <a href="#">Separated link</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </nav>
@@ -207,28 +217,31 @@
                 <h1>
                     欢迎使用！
                 </h1>
-				<div class="container-fluid">
-						<div class="col-md-4 column">
-						<p>
-							This is a template for a simple marketing or informational website. It includes a large callout
-							called the hero unit and three supporting pieces of content. Use it as a starting point to create
-							something more unique.
-						</p>
+                <div class="container-fluid">
+                    <div class="col-md-4 column">
+                        <p>
+                            Adopted all around the world, OpenCV has more than 47 thousand people of user community and
+                            estimated number of downloads exceeding 9 million. Usage ranges from interactive art, to
+                            mines inspection, stitching maps on the web or through advanced robotics. Use it as a starting
+                            point to create something more unique.
+                        </p>
 
-						<p><button type="button" class="btn btn-primary" value="preview" onclick="upload_img()"/>预览</button></p>
-						</div>
-						
-						<img src="" id="img_id" style="display:none" width="600" height="370">
-				</div>
+                        <p>
+                            <button type="button" class="btn btn-primary" value="preview" onclick="upload_img()"/>
+                            预 览</button></p>
+                    </div>
+
+                    <img src="" id="img_id" style="display:none" width="600" height="370">
+                </div>
             </div>
         </div>
     </div>
     <div class="container-fluid">
         <form action="." method="post" enctype="multipart/form-data">
             {% csrf_token %}
-			<p><input id="id_image_file" name="image_file" type="file"
-                       class="btn btn-primary btn-large">
-            </p>            
+            <p><input id="id_image_file" name="image_file" type="file"
+                      class="btn btn-primary btn-large">
+            </p>
             <h4>请选择图片格式:jpg、bmp</h4>
             <div class="row">
                 <div class="col-md-3 column">
@@ -257,8 +270,10 @@
                     </p>
                 </div>
                 <div class="input-group input-group-sm">
-                  <span class="input-group-addon" id="sizing-addon3">Threshold</span>
-                  <input  class="form-control" placeholder="Threshold" aria-describedby="sizing-addon3" id="id_binary_threshold_threshold" name="binary_threshold_threshold" type="number" value="128">
+                    <span class="input-group-addon" id="sizing-addon3">Threshold</span>
+                    <input class="form-control" placeholder="Threshold" aria-describedby="sizing-addon3"
+                           id="id_binary_threshold_threshold" name="binary_threshold_threshold" type="number"
+                           value="128">
                 </div>
                 <div class="row">
                     <p>
@@ -266,8 +281,9 @@
                     </p>
                 </div>
                 <div class="input-group input-group-sm">
-                  <span class="input-group-addon" id="sizing-addon3">坐标值（x, y）</span>
-                  <input  class="form-control" placeholder="坐标值（x, y）" aria-describedby="sizing-addon3" id="id_shift_coords" name="shift_coords" type="text" value="(0, 0)">
+                    <span class="input-group-addon" id="sizing-addon3">坐标值（x, y）</span>
+                    <input class="form-control" placeholder="坐标值（x, y）" aria-describedby="sizing-addon3"
+                           id="id_shift_coords" name="shift_coords" type="text" value="(0, 0)">
                 </div>
                 <div class="row">
                     <p>
@@ -275,8 +291,9 @@
                     </p>
                 </div>
                 <div class="input-group input-group-sm">
-                  <span class="input-group-addon" id="sizing-addon3">角度（degree）</span>
-                  <input  class="form-control" placeholder="旋转角度（degree）" aria-describedby="sizing-addon3" id="id_rotation_degree" name="rotation_degree" type="number" value="45">
+                    <span class="input-group-addon" id="sizing-addon3">角度（degree）</span>
+                    <input class="form-control" placeholder="旋转角度（degree）" aria-describedby="sizing-addon3"
+                           id="id_rotation_degree" name="rotation_degree" type="number" value="45">
                 </div>
                 <div class="row">
                     <p>
@@ -284,8 +301,9 @@
                     </p>
                 </div>
                 <div class="input-group input-group-sm">
-                  <span class="input-group-addon" id="sizing-addon3">比例（ratio）</span>
-                  <input  class="form-control" placeholder="缩放比例（ratio）" aria-describedby="sizing-addon3" id="id_scale_area_ratio" name="scale_area_ratio" type="number" value="45">
+                    <span class="input-group-addon" id="sizing-addon3">比例（ratio）</span>
+                    <input class="form-control" placeholder="缩放比例（ratio）" aria-describedby="sizing-addon3"
+                           id="id_scale_area_ratio" name="scale_area_ratio" type="number" value="45">
                 </div>
                 <div class="row">
                     <p>
@@ -293,8 +311,9 @@
                     </p>
                 </div>
                 <div class="input-group input-group-sm">
-                  <span class="input-group-addon" id="sizing-addon3">比例（ratio）</span>
-                  <input  class="form-control" placeholder="缩放比例（ratio）" aria-describedby="sizing-addon3" id="id_scale_linear_ratio" name="scale_linear_ratio" type="number" value="45">
+                    <span class="input-group-addon" id="sizing-addon3">比例（ratio）</span>
+                    <input class="form-control" placeholder="缩放比例（ratio）" aria-describedby="sizing-addon3"
+                           id="id_scale_linear_ratio" name="scale_linear_ratio" type="number" value="45">
                 </div>
                 </p>
             </div>
@@ -308,76 +327,84 @@
                     {{ form.dilate_binary }} &nbsp二值膨胀
                 </p>
             </div>
-                <div class="input-group input-group-sm">
-                  <span class="input-group-addon" id="sizing-addon3">Kernel</span>
-                  <input  class="form-control" placeholder="Kernel（x, y）" aria-describedby="sizing-addon3" id="id_dilate_binary_ksize" name="dilate_binary_ksize" type="text" value="(9, 9)">
-                </div>
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3">Kernel</span>
+                <input class="form-control" placeholder="Kernel（x, y）" aria-describedby="sizing-addon3"
+                       id="id_dilate_binary_ksize" name="dilate_binary_ksize" type="text" value="(9, 9)">
+            </div>
             <div class="row">
                 <p>
                     {{ form.erode_binary }} &nbsp二值腐蚀
                 </p>
             </div>
 
-                <div class="input-group input-group-sm">
-                  <span class="input-group-addon" id="sizing-addon3">Kernel</span>
-                  <input  class="form-control" placeholder="Kernel（x, y）" aria-describedby="sizing-addon3" id="id_erode_binary_ksize" name="erode_binary_ksize" type="text" value="(9, 9)">
-                </div>
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3">Kernel</span>
+                <input class="form-control" placeholder="Kernel（x, y）" aria-describedby="sizing-addon3"
+                       id="id_erode_binary_ksize" name="erode_binary_ksize" type="text" value="(9, 9)">
+            </div>
             <div class="row">
                 <p>
                     {{ form.open_binary }} &nbsp二值开运算
                 </p>
             </div>
-                <div class="input-group input-group-sm">
-                  <span class="input-group-addon" id="sizing-addon3">Kernel</span>
-                  <input  class="form-control" placeholder="Kernel（x, y）" aria-describedby="sizing-addon3" id="id_opend_binary_ksize" name="opend_binary_ksize" type="text" value="(9, 9)">
-                </div>
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3">Kernel</span>
+                <input class="form-control" placeholder="Kernel（x, y）" aria-describedby="sizing-addon3"
+                       id="id_opend_binary_ksize" name="opend_binary_ksize" type="text" value="(9, 9)">
+            </div>
             <div class="row">
                 <p>
                     {{ form.close_binary }} &nbsp二值闭运算
                 </p>
             </div>
-                <div class="input-group input-group-sm">
-                  <span class="input-group-addon" id="sizing-addon3">Kernel</span>
-                  <input  class="form-control" placeholder="Kernel（x, y）" aria-describedby="sizing-addon3" id="id_closed_binary_ksize" name="closed_binary_ksize" type="text" value="(9, 9)">
-                </div>
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3">Kernel</span>
+                <input class="form-control" placeholder="Kernel（x, y）" aria-describedby="sizing-addon3"
+                       id="id_closed_binary_ksize" name="closed_binary_ksize" type="text" value="(9, 9)">
+            </div>
             <div class="row">
                 <p>
                     {{ form.dilate }} &nbsp灰度膨胀
                 </p>
             </div>
-                <div class="input-group input-group-sm">
-                  <span class="input-group-addon" id="sizing-addon3">Kernel</span>
-                  <input  class="form-control" placeholder="Kernel（x, y）" aria-describedby="sizing-addon3" id="id_dilate_ksize" name="dilate_ksize" type="text" value="(9, 9)">
-                </div>
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3">Kernel</span>
+                <input class="form-control" placeholder="Kernel（x, y）" aria-describedby="sizing-addon3"
+                       id="id_dilate_ksize" name="dilate_ksize" type="text" value="(9, 9)">
+            </div>
 
             <div class="row">
                 <p>
                     {{ form.erode }} &nbsp灰度腐蚀
                 </p>
             </div>
-                <div class="input-group input-group-sm">
-                  <span class="input-group-addon" id="sizing-addon3">Kernel</span>
-                  <input  class="form-control" placeholder="Kernel（x, y）" aria-describedby="sizing-addon3" id="id_erode_ksize" name="erode_ksize" type="text" value="(9, 9)">
-                </div>
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3">Kernel</span>
+                <input class="form-control" placeholder="Kernel（x, y）" aria-describedby="sizing-addon3"
+                       id="id_erode_ksize" name="erode_ksize" type="text" value="(9, 9)">
+            </div>
             <div class="row">
                 <p>
                     {{ form.open }} &nbsp灰度开运算
                 </p>
             </div>
-                <div class="input-group input-group-sm">
-                  <span class="input-group-addon" id="sizing-addon3">Kernel</span>
-                  <input  class="form-control" placeholder="Kernel（x, y）" aria-describedby="sizing-addon3" id="id_opend_ksize" name="opend_ksize" type="text" value="(9, 9)">
-                </div>
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3">Kernel</span>
+                <input class="form-control" placeholder="Kernel（x, y）" aria-describedby="sizing-addon3"
+                       id="id_opend_ksize" name="opend_ksize" type="text" value="(9, 9)">
+            </div>
             <div class="row">
                 <p>
                     {{ form.close }} &nbsp灰度闭运算
                 </p>
             </div>
-                <div class="input-group input-group-sm">
-                  <span class="input-group-addon" id="sizing-addon3">Kernel</span>
-                  <input  class="form-control" placeholder="Kernel（x, y）" aria-describedby="sizing-addon3" id="id_closed_ksize" name="closed_ksize" type="text" value="(9, 9)">
-                </div>
-        </p>
+            <div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3">Kernel</span>
+                <input class="form-control" placeholder="Kernel（x, y）" aria-describedby="sizing-addon3"
+                       id="id_closed_ksize" name="closed_ksize" type="text" value="(9, 9)">
+            </div>
+            </p>
     </div>
     <div class="col-md-3 column">
         <h2>
@@ -399,50 +426,56 @@
             {{ form.sobel }} &nbspSobel 算子
         </p>
     </div>
-                <div class="input-group input-group-sm">
-                  <span class="input-group-addon" id="sizing-addon3">Kernel</span>
-                  <input  class="form-control" placeholder="Kernel" aria-describedby="sizing-addon3" id="id_sobel_ksize" name="sobel_ksize" type="number" value="5">
-                </div>
+    <div class="input-group input-group-sm">
+        <span class="input-group-addon" id="sizing-addon3">Kernel</span>
+        <input class="form-control" placeholder="Kernel" aria-describedby="sizing-addon3" id="id_sobel_ksize"
+               name="sobel_ksize" type="number" value="5">
+    </div>
     <div class="row">
         <p>
             {{ form.canny }} &nbspCanny 算子
         </p>
     </div>
-                <div class="input-group input-group-sm">
-                  <span class="input-group-addon" id="sizing-addon3">Threshold</span>
-                  <input  class="form-control" placeholder="Threshold" aria-describedby="sizing-addon3" id="id_canny_threshold" name="canny_threshold" type="text" value="(100, 200)">
-                </div>
+    <div class="input-group input-group-sm">
+        <span class="input-group-addon" id="sizing-addon3">Threshold</span>
+        <input class="form-control" placeholder="Threshold" aria-describedby="sizing-addon3" id="id_canny_threshold"
+               name="canny_threshold" type="text" value="(100, 200)">
+    </div>
     <div class="row">
         <p>
             {{ form.gaussian_blur }} &nbsp高斯滤波
         </p>
     </div>
 
-                <div class="input-group input-group-sm">
-                  <span class="input-group-addon" id="sizing-addon3">Kernel</span>
-                  <input  class="form-control" placeholder="Kernel" aria-describedby="sizing-addon3" id="id_gaussian_ksize" name="gaussian_ksize" type="text" value="(31, 31)">
-                    <span class="input-group-addon" id="sizing-addon3">Sigma</span>
-                  <input  class="form-control" placeholder="方差（Sigma）" aria-describedby="sizing-addon3" id="id_gaussian_sigmaX" name="gaussian_sigmaX" type="number" value="2.5">
- 
-                </div>
+    <div class="input-group input-group-sm">
+        <span class="input-group-addon" id="sizing-addon3">Kernel</span>
+        <input class="form-control" placeholder="Kernel" aria-describedby="sizing-addon3" id="id_gaussian_ksize"
+               name="gaussian_ksize" type="text" value="(31, 31)">
+        <span class="input-group-addon" id="sizing-addon3">Sigma</span>
+        <input class="form-control" placeholder="方差（Sigma）" aria-describedby="sizing-addon3" id="id_gaussian_sigmaX"
+               name="gaussian_sigmaX" type="number" value="2.5">
+
+    </div>
     <div class="row">
         <p>
             {{ form.average_blur }} &nbsp均值滤波
         </p>
     </div>
-                <div class="input-group input-group-sm">
-                  <span class="input-group-addon" id="sizing-addon3">Kernel</span>
-                  <input  class="form-control" placeholder="Kernel" aria-describedby="sizing-addon3" id="id_average_blur_ksize" name="average_blur_ksize" type="text" value="(9, 9)">
-                </div>
+    <div class="input-group input-group-sm">
+        <span class="input-group-addon" id="sizing-addon3">Kernel</span>
+        <input class="form-control" placeholder="Kernel" aria-describedby="sizing-addon3" id="id_average_blur_ksize"
+               name="average_blur_ksize" type="text" value="(9, 9)">
+    </div>
     <div class="row">
         <p>
             {{ form.median_blur }} &nbsp中值滤波
         </p>
     </div>
-                <div class="input-group input-group-sm">
-                  <span class="input-group-addon" id="sizing-addon3">Kernel</span>
-                  <input  class="form-control" placeholder="Kernel" aria-describedby="sizing-addon3" id="id_median_blur_ksize" name="median_blur_ksize" type="number" value="5">
-                </div>
+    <div class="input-group input-group-sm">
+        <span class="input-group-addon" id="sizing-addon3">Kernel</span>
+        <input class="form-control" placeholder="Kernel" aria-describedby="sizing-addon3" id="id_median_blur_ksize"
+               name="median_blur_ksize" type="number" value="5">
+    </div>
     </p>
 </div>
 <div class="col-md-3 column">
@@ -460,13 +493,27 @@
 </div>
 </div>
 <!--<input type="submit" value="Process"/>-->
-<button type="submit" class="btn btn-primary" value="Process">上传处理</button>
-
+<button type="submit" class="btn btn-primary pull-right" value="Process" >上 传 处 理</button>
+<br><br>
 </form>
-
+<hr>
+<footer>
+    <div class="row text-center">
+        <div class="col-lg-12">
+            <p>Copyright &copy; Your Website 2016 Powered by<a href="mailto:Legolasli@qiyi.com" class="social-link-item"
+                                                     target="_blank"><i class="fa fa-fw fa-envelope"></i>
+                Legolasli@qiyi.com </a> <i class="fa fa-fw fa-tty"></i> 021-54519520-8996</li>
+            </p>
+        </div>
+    </div>
+</footer>
 </div>
 </div>
 
+
+
+</body>
+</html>
 <script type="text/javascript">
 
 $(document).ready(function() {
@@ -516,14 +563,4 @@ $(document).ready(function() {
 
 
 
-
-
-
-
-
-
-
 </script>
-
-</body>
-</html>

@@ -137,7 +137,7 @@
                             data-target="#bs-example-navbar-collapse-1"><span
                             class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
                             class="icon-bar"></span><span class="icon-bar"></span></button>
-                    <a class="navbar-brand" href="/">OpenCV4Orz</a>
+                    <a class="navbar-brand" href="/" style="position:relative;top:-15px;">OpenCV4Orz<img alt="Brand" src="/statics/img/orz.gif" width = "100" height = "30" style="position:relative;top:0px;"></a>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
@@ -145,42 +145,50 @@
                             <a href="/">Home</a>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenCV<strong
                                     class="caret"></strong></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="#">Action</a>
+                                    <a href="http://opencv.org/" target="__blank">Index</a>
                                 </li>
                                 <li>
-                                    <a href="#">Another action</a>
+                                    <a href="http://opencv.org/about.html" target="__blank">About</a>
                                 </li>
                                 <li>
-                                    <a href="#">Something else here</a>
+                                    <a href="http://opencv.org/downloads.html" target="__blank">Download</a>
                                 </li>
                                 <li class="divider">
                                 </li>
                                 <li>
-                                    <a href="#">Separated link</a>
+                                    <a href="http://opencv.org/documentation.html" target="__blank">Documentation</a>
+                                </li>
+                                <li>
+                                    <a href="http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_tutorials.html" target="__blank">OpenCV-Python</a>
+                                </li>
+                                <li>
+                                    <a href="http://opencv.org/platforms.html" target="__blank">Platforms</a>
                                 </li>
                                 <li class="divider">
                                 </li>
                                 <li>
-                                    <a href="#">One more separated link</a>
+                                    <a href="http://opencv.org/support.html" target="__blank">Support</a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
-                    <form class="navbar-form navbar-left" role="search">
+                    <form class="navbar-form navbar-left"  action="http://docs.opencv.org/2.4.13/search.html" method="get">
                         <div class="form-group">
-                            <input type="text" class="form-control"/>
+                            <input type="text" name="q" class="form-control"/>
+							<input type="hidden" name="check_keywords" value="yes">
+							<input type="hidden" name="area" value="default">
                         </div>
-                        <button type="submit" class="btn btn-default">Submit</button>
+                        <button type="submit" class="btn btn-default">Search</button>
                     </form>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="#">Link</a>
+                            <a href="https://github.com/Legolas-Li/OpenCV4Orz/blob/master/README.md" class="fa fa-github" target="_blank"> View on GitHub</a>
                         </li>
-                        <li class="dropdown">
+                        <!-- <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong
                                     class="caret"></strong></a>
                             <ul class="dropdown-menu">
@@ -199,26 +207,36 @@
                                     <a href="#">Separated link</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </nav>
-            <div class="jumbotron clearfix">
-                <div class="container">
+            <div class="jumbotron container-fluid">
+
     {% if imageurlcontainer %}
-        <ul>
+
         {% for document in imageurlcontainer %}        
             <li><img src="/media/{{document}}" width = "500" height = "309"><br>{{document}}</li>
             <br>
         {% endfor %}
-        </ul>
+
     {% else %}
         <p>Some error occured.</p>
     {% endif %}
        
 
     </div>
-            </div>
+<hr>
+<footer>
+    <div class="row text-center">
+        <div class="col-lg-12">
+            <p>Copyright &copy; Your Website 2016 Powered by<a href="mailto:Legolasli@qiyi.com" class="social-link-item"
+                                                     target="_blank"><i class="fa fa-fw fa-envelope"></i>
+                Legolasli@qiyi.com </a> <i class="fa fa-fw fa-tty"></i> 021-54519520-8996</li>
+            </p>
+        </div>
+    </div>
+</footer>
         </div>
     </div>
     
