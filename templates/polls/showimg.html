@@ -214,9 +214,9 @@
             <div class="jumbotron container-fluid">
 
     {% if imageurlcontainer %}
-
-        {% for document in imageurlcontainer %}        
-            <li><img src="/media/{{document}}" width = "500" height = "309"><br>{{document}}</li>
+        {% for document in imageurlcontainer %}
+			&nbsp;&nbsp;&nbsp;<b>{{document}}<b><br>
+            <li><img src="/media/documents/{{document}}" width = "500" height = "309"></li>
             <br>
         {% endfor %}
 

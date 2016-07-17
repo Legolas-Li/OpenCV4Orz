@@ -5,6 +5,7 @@ from models import Document
 from os import path
 from django.conf import settings
 from opencvstuff import *
+import os
 #foregroundextraction,imagegradient,smoothing
 
 
@@ -119,11 +120,9 @@ def process(request, form, name=None, process_todo=[]):
     opend_binary_ksize = form.cleaned_data['opend_binary_ksize']
     closed_binary_ksize = form.cleaned_data['closed_binary_ksize']
     dilate_ksize = form.cleaned_data['dilate_ksize']
-    print 2222222,dilate_ksize
     erode_ksize = form.cleaned_data['erode_ksize']
     opend_ksize = form.cleaned_data['opend_ksize']
     closed_ksize = form.cleaned_data['closed_ksize']
-    print 333333333,closed_ksize
     shift_coords = form.cleaned_data['shift_coords']
     scale_area_ratio = form.cleaned_data['scale_area_ratio']
     scale_linear_ratio = form.cleaned_data['scale_linear_ratio']
@@ -214,7 +213,7 @@ def process(request, form, name=None, process_todo=[]):
             imageurlcontainerfinal = []
             print "Process iamge product", imageurlcontainer,imageurlcontainerfinal
             for i in imageurlcontainer:
-                imageurlcontainerfinal.append(str(i).split("OpenCV4Orz\\media\\")[1])
+                imageurlcontainerfinal.append(str(i).split("media"+os.sep+"documents")[1])
             return imageurlcontainerfinal
         else:
             return HttpResponse("Some Error Error Occured")
