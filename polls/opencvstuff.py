@@ -48,6 +48,7 @@ def hist_equalize(image):
     return imagename
 
 def roberts(image):
+    image = binary_threshold(image, 128)
     img = cv2.imread(image)
     kernel = np.array([[1, 0], [0, -1]])
     roberts = cv2.filter2D(img, -1, kernel)
@@ -56,6 +57,7 @@ def roberts(image):
     return imagename
 
 def prewitt(image):
+    image = binary_threshold(image, 128)
     img = cv2.imread(image)
     kernel = np.array([[-1, 0, 1], [-1, 0, 1], [-1, 0, 1]])
     prewitt = cv2.filter2D(img, -1, kernel)
@@ -64,6 +66,7 @@ def prewitt(image):
     return imagename
 
 def sobel(image, sobel_ksize):
+    image = binary_threshold(image, 128)
     img = cv2.imread(image,0)
     sobel = cv2.Sobel(img,cv2.CV_64F,1,1,ksize=sobel_ksize)
     imagename = str(image).split(".")[0]+"_sobel_processed."+str(image).split(".")[-1]
@@ -71,6 +74,7 @@ def sobel(image, sobel_ksize):
     return imagename
 
 def canny(image,canny_threshold):
+    image = binary_threshold(image, 128)
     img = cv2.imread(image,0)
     edges = cv2.Canny(img,eval(canny_threshold)[0],eval(canny_threshold)[1])
     imagename = str(image).split(".")[0]+"_canny_processed."+str(image).split(".")[-1]
@@ -78,6 +82,7 @@ def canny(image,canny_threshold):
     return imagename
 
 def gaussian_blur(image,gaussian_ksize,gaussian_sigmaX):
+    image = binary_threshold(image, 128)
     img = cv2.imread(image)
     gaussian_blur = cv2.GaussianBlur(img, eval(gaussian_ksize),gaussian_sigmaX)
     imagename = str(image).split(".")[0] + "_gaussian_blur_processed." + str(image).split(".")[-1]
@@ -85,6 +90,7 @@ def gaussian_blur(image,gaussian_ksize,gaussian_sigmaX):
     return imagename
 
 def median_blur(image,median_blur_ksize):
+    image = binary_threshold(image, 128)
     img = cv2.imread(image)
     median_blur = cv2.medianBlur(img, median_blur_ksize)
     imagename = str(image).split(".")[0] + "_median_blur_processed." + str(image).split(".")[-1]
@@ -92,6 +98,7 @@ def median_blur(image,median_blur_ksize):
     return imagename
 
 def average_blur(image,average_blur_ksize):
+    image = binary_threshold(image, 128)
     img = cv2.imread(image)
     average_blur = cv2.blur(img, eval(average_blur_ksize))
     imagename = str(image).split(".")[0] + "_average_blur_processed." + str(image).split(".")[-1]
@@ -136,7 +143,7 @@ def closed_binary(image,closed_binary_ksize):
 
 def dilate(image,dilate_ksize):
     img = cv2.imread(image, 0)
-    print 111111111,dilate_ksize,type(dilate_ksize)
+    #print 111111111,dilate_ksize,type(dilate_ksize)
     k = cv2.getStructuringElement(cv2.MORPH_RECT, eval(dilate_ksize))
     dilate = cv2.dilate(img, k)
     imagename = str(image).split(".")[0] + "_dilate_processed." + str(image).split(".")[-1]
